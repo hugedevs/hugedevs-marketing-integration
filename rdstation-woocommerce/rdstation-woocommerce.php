@@ -1,11 +1,15 @@
 <?php
 /*
-  Plugin name: RDStation Woocommerce
-  Description: Plugin para conectar o Woocommerce ao RD Station.
-  Version: 1.0
-  Authors: Higor Denomar, Igor Gottschalg
-  Author uri: https://hugedevs.co
+  * Plugin name: RDStation Woocommerce
+  * Description: Plugin para conectar o Woocommerce ao RD Station.
+  * Version: 1.0
+  * Authors: Higor Denomar, Igor Gottschalg
+  * Author uri: https://hugedevs.co
+  * License:           GPL-2.0+
+  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
 */
+
+define( 'RDStation_Woocommerce', '1.0.0' );
 
 class RDStation_Woocommerce{
 
