@@ -1,6 +1,6 @@
 <?php
 /*
-  * Plugin name: RDStation Woocommerce
+  * Plugin name: RDStation Integração
   * Description: Plugin para conectar o Woocommerce ao RD Station.
   * Version: 1.0
   * Authors: Higor Denomar, Igor Gottschalg
