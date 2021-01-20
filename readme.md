@@ -10,8 +10,8 @@ Plugins está em fase de contrução mais já pode ser utlizado para enviar os d
 - [ ] Enviar lead do cliente logado que abandonou o checkout
 
 ## Créditos
-Igor Gottschalg
-Higor Denomar
+- Igor Gottschalg
+- Higor Denomar
 
 
 Estamos abertos a novas ideias e necessidades, entre em contato para conversarmos.
