@@ -3,7 +3,9 @@
 add_action('admin_init', 'rw_settings');
 
 function rw_settings() {
-  /* SECTION INTEGRATION WITH RDSTATION */
+  /*
+   * API Key
+   */
   add_settings_section(
     'rw_integration_section',
     'Integração com RDStation',
@@ -11,23 +13,20 @@ function rw_settings() {
     'rw_settings_group'
   );
 
-  /*
-   * API Key
-   */
   register_setting(
     'rw_settings_group',
-    'rdstation_api_key',
+    'hugedevs_rd_integration_api_key',
     [
       'sanitize_callback' => function( $value ) {
-        if( !$value ) {
+        if( strlen($value) < 32 ) {
           add_settings_error(
-            'rdstation_api_key',
-            esc_attr('rdstation_api_key_warning'),
+            'hugedevs_rd_integration_api_key',
+            esc_attr('hugedevs_rd_integration_api_key_warning'),
             'Informe uma chave de API válida.',
             'error'
           );
 
-          return get_option( 'rdstation_api_key');
+          return get_option( 'hugedevs_rd_integration_api_key');
         }
 
         return $value;
@@ -36,45 +35,56 @@ function rw_settings() {
   );
 
   add_settings_field(
-    'rdstation_api_key',
+    'hugedevs_rd_integration_api_key',
     'Chave API',
     function($args) {
-      $options = get_option('rdstation_api_key');
+      $options = get_option('hugedevs_rd_integration_api_key');
 
       ?>
         <input
           type="text"
           id="<?php echo esc_attr($args['label_for']); ?>"
-          name="rdstation_api_key"
+          name="hugedevs_rd_integration_api_key"
           value="<?php echo esc_attr($options); ?>"
+          maxlength="32"
         >
       <?php
     },
     'rw_settings_group',
     'rw_integration_section',
     [
-      'label_for' => 'rdstation_api_key',
+      'label_for' => 'hugedevs_rd_integration_api_key',
       'class'     => 'rw_input',
     ]
   );
 
+  
   /*
-   * Purchase identifier
+   * Identifier
    */
+  add_settings_section(
+    'rw_identifier_section',
+    'Identificadores',
+    function () {
+      echo '<p>Configure os indicadores de cada ação do usuário que chegará no RDStation.</p>';
+    },
+    'rw_settings_group'
+  );
+
   register_setting(
     'rw_settings_group',
-    'rw_purchase_identifier',
+    'hugedevs_rd_integration_purchase_indentifier',
     [
       'sanitize_callback' => function( $value ) {
         if( !$value ) {
           add_settings_error(
-            'rw_purchase_identifier',
-            esc_attr('rw_purchase_identifier_warning'),
+            'hugedevs_rd_integration_purchase_indentifier',
+            esc_attr('hugedevs_rd_integration_purchase_indentifier_warning'),
             'Informe um identificador válido.',
             'error'
           );
 
-          return get_option( 'rw_purchase_identifier');
+          return get_option( 'hugedevs_rd_integration_purchase_indentifier');
         }
 
         return $value;
@@ -83,24 +93,24 @@ function rw_settings() {
   );
 
   add_settings_field(
-    'rw_purchase_identifier',
+    'hugedevs_rd_integration_purchase_indentifier',
     'Identificador de compra',
     function($args) {
-      $options = get_option('rw_purchase_identifier');
+      $options = get_option('hugedevs_rd_integration_purchase_indentifier');
 
       ?>
         <input
           type="text"
           id="<?php echo esc_attr($args['label_for']); ?>"
-          name="rw_purchase_identifier"
+          name="hugedevs_rd_integration_purchase_indentifier"
           value="<?php echo esc_attr($options); ?>"
         >
       <?php
     },
     'rw_settings_group',
-    'rw_integration_section',
+    'rw_identifier_section',
     [
-      'label_for' => 'rw_purchase_identifier',
+      'label_for' => 'hugedevs_rd_integration_purchase_indentifier',
       'class'     => 'rw_input',
     ]
   );
