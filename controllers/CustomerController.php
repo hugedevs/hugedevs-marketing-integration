@@ -9,5 +9,6 @@ class HugedevsMarketingIntegration_Customer_Controller{
     
     public function syncronize() {
         // TODO: Criar arquivo csv com os clientes https://www.php.net/manual/pt_BR/function.fputcsv.php
+        /* nome, email,telefone */
     }
 }
