@@ -8,4 +8,4 @@ services:
     ports:
       - 80:80
     volumes:
-      - ./:/var/www/html/wp-content/plugins/rdstation-woocommerce
+      - ./:/var/www/html/wp-content/plugins/hugedevs-marketing-integration
