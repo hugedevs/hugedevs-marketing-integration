@@ -1,4 +1,19 @@
-<form action="?page=hugedevs_marketing_integration_settings&save=true" method="post">
+<form action="?page=hugedevs-marketing-integration-settings&export_customer=true" method="post">
+    <div class="tabs-content">
+        <table class="form-table">
+            <tbody>
+                <tr>
+                    <th scope="row"><label>Exportar os clientes</label></th>
+                    <td>
+                        <button type="submit" class="button button-primary">Exportar csv</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</form>
+
+<form action="?page=hugedevs-marketing-integration-settings&save=true" method="post">
     <div class="tabs-content">
         <table class="form-table">
             <tbody>
@@ -16,32 +31,4 @@
         </p>
     </div>
 
-    <div class="tabs-content">
-        <table class="form-table">
-            <tbody>
-                <tr>
-                    <th scope="row"><label>Sincronizar os clientes</label></th>
-                    <td>
-                        <button type="button" id="sync_customer" class="button button-primary">Salvar alterações</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
 </form>
-
-
-<script>
-jQuery(document).ready(function() {
-    jQuery("#sync_customer").click(function() {
-        jQuery.post(
-            ajaxurl, {
-                'action': 'hugedevs_marketing_integration_customer_syncronize',
-            },
-            function(response) {
-
-            }
-        );
-    });
-});
-</script>

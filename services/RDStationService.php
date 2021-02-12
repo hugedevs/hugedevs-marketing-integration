@@ -2,7 +2,7 @@
 
 class HugedevsMarketingIntegration_Services_RDStation{
     
-  public function sendToRdstation($data_array ) {
+  public function send($data_array ) {
     $api_url = "https://www.rdstation.com.br/api/1.3/conversions";
   
     try {

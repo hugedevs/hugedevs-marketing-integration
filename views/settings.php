@@ -4,12 +4,12 @@
     <!-- Here are our tabs -->
 
     <nav class="nav-tab-wrapper">
-      <a href="?page=hugedevs_marketing_integration_settings" class="nav-tab <?php if($tab===null):?>nav-tab-active<?php endif; ?>">Eventos</a>
-      <a href="?page=hugedevs_marketing_integration_settings&tab=settings" class="nav-tab <?php if($tab==='settings'):?>nav-tab-active<?php endif; ?>">Configurações</a>
+        <a href="?page=hugedevs-marketing-integration-settings" class="nav-tab <?php if($tab===null):?>nav-tab-active<?php endif; ?>">Eventos</a>
+        <a href="?page=hugedevs-marketing-integration-settings&tab=settings" class="nav-tab <?php if($tab==='settings'):?>nav-tab-active<?php endif; ?>">Configurações</a>
     </nav>
 
     <div class="tab-content">
-		<?php 
+        <?php 
 			switch($tab) :
 			case 'settings':
 				break;
@@ -21,5 +21,4 @@
 		?>
     </div>
 
-  </div>
-
+</div>

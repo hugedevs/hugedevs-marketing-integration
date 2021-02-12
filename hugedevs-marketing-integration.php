@@ -36,7 +36,6 @@ class HugedevsMarketingIntegration {
 
     HugedevsMarketingIntegration_Woocommerce_Hooks::install();
     HugedevsMarketingIntegration_Settings_Controller::admin_menu();
-    HugedevsMarketingIntegration_Customer_Controller::run();
   }
 
   public function loadClasses($path)

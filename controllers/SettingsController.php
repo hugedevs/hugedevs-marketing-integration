@@ -9,15 +9,7 @@ class HugedevsMarketingIntegration_Settings_Controller{
 
   public function menu() 
   {
-    add_options_page(
-      'Configurações RDStation Woocommerce',
-      "Hugedev's",
-      'manage_options',
-      'hugedevs_marketing_integration_settings',
-      array("HugedevsMarketingIntegration_Settings_Controller" ,'index'),
-      '',
-      1000
-    );
+    add_submenu_page( 'woocommerce', 'Integração RD Station', 'Integração RD Station', 'manage_options', 'hugedevs-marketing-integration-settings',  array("HugedevsMarketingIntegration_Settings_Controller" ,'index') ); 
   }
 
   public function index()
@@ -25,6 +17,10 @@ class HugedevsMarketingIntegration_Settings_Controller{
 
     if(isset($_GET['save']) && $_GET['save'] =="true"){
       $this->save();
+    }
+
+    if(isset($_GET['export_customer']) && $_GET['export_customer'] =="true"){
+      HugedevsMarketingIntegration_Customer_Controller::export_customers();
     }
     
     $default_tab = null;
@@ -42,4 +38,3 @@ class HugedevsMarketingIntegration_Settings_Controller{
   }
   
 }
-

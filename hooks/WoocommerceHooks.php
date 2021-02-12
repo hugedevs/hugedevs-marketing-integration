@@ -3,7 +3,7 @@
 class HugedevsMarketingIntegration_Woocommerce_Hooks {
 
     public function install(){
-        add_action( 'woocommerce_thankyou', array(HugedevsMarketingIntegration_Woocommerce_Hooks, 'completed_purchase' ));
+        add_action( 'woocommerce_thankyou', array('HugedevsMarketingIntegration_Woocommerce_Hooks', 'completed_purchase' ));
     }	
     
     public function completed_purchase( $order_id ) {
@@ -27,7 +27,7 @@ class HugedevsMarketingIntegration_Woocommerce_Hooks {
                 $product = $item->get_product();
                 $order_price = $item->get_total();
 
-                HugedevsMarketingIntegration_Services_RDStation::sendToRdstation(array(
+                HugedevsMarketingIntegration_Services_RDStation::send(array(
                     'nome'            => $full_name,
                     'produto'         => $product->get_name(),
                     'localidade'      => $city,
