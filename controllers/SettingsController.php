@@ -16,7 +16,7 @@ class HugedevsMarketingIntegration_Settings_Controller{
   {
 
     if(isset($_GET['save']) && $_GET['save'] =="true"){
-      $this->save();
+      HugedevsMarketingIntegration_Settings_Controller::save();
     }
 
     if(isset($_GET['export_customer']) && $_GET['export_customer'] =="true"){
