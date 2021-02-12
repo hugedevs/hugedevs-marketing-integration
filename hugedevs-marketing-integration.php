@@ -30,12 +30,34 @@ class HugedevsMarketingIntegration {
 
   private function run()
   {
-    $this->loadClasses(dirname(__FILE__) . "/hooks");
-    $this->loadClasses(dirname(__FILE__) . "/services");
-    $this->loadClasses(dirname(__FILE__) . "/controllers");
+    try {
+      self::loadClasses(dirname(__FILE__) . "/helpers");
+      $this->loadClasses(dirname(__FILE__) . "/hooks");
+      $this->loadClasses(dirname(__FILE__) . "/models");
+      $this->loadClasses(dirname(__FILE__) . "/services");
+      $this->loadClasses(dirname(__FILE__) . "/controllers");
+      
+      self::check_dependencies();
+      
+      HugedevsMarketingIntegration_Woocommerce_Hooks::install();
+      HugedevsMarketingIntegration_Settings_Controller::admin_menu();
+      HugedevsMarketingIntegration_Cron_Controller::setup();
+      add_action('init', array("HugedevsMarketingIntegration","actions"));
+    } catch ( Throwable $e ) {
+      $m = $e->getMessage();
+      require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+      deactivate_plugins( '/hugedevs-marketing-integration/hugedevs-marketing-integration.php', true );
+      add_action( 'admin_notices', function($m){
+        $class = 'notice notice-error';
+        $message = 'Plugin NOT activated. Some dependecies are missing: '.$m;
+        printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), esc_html( $message ) );
+      });
+    }
+  }
 
-    HugedevsMarketingIntegration_Woocommerce_Hooks::install();
-    HugedevsMarketingIntegration_Settings_Controller::admin_menu();
+  public function actions()
+  {
+    add_action('hugedevs_actions', array("HugedevsMarketingIntegration_Cron_Controller","actions"));
   }
 
   public function loadClasses($path)

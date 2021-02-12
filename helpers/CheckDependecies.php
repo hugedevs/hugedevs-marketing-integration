@@ -5,6 +5,7 @@ class HugedevsMarketingIntegration_Dependency_Checker_Helper {
 
 	const REQUIRED_PLUGINS = array(
 		'WooCommerce' => 'woocommerce/woocommerce.php',
+		'Cartbounty Abandoned Carts' => 'woo-save-abandoned-carts/cartbounty-abandoned-carts.php',
 	);
 
 	public function check() {
@@ -14,7 +15,7 @@ class HugedevsMarketingIntegration_Dependency_Checker_Helper {
 			throw new Exception( implode(", ", $missing_plugins) );
 		}
 	}
-
+	
 	private function get_missing_plugin_list() {
 		$missing_plugins = array_filter(
 			self::REQUIRED_PLUGINS,

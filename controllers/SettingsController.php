@@ -14,7 +14,7 @@ class HugedevsMarketingIntegration_Settings_Controller{
 
   public function index()
   {
-
+    do_action("hugedevs_actions");
     if(isset($_GET['save']) && $_GET['save'] =="true"){
       HugedevsMarketingIntegration_Settings_Controller::save();
     }
@@ -35,6 +35,9 @@ class HugedevsMarketingIntegration_Settings_Controller{
 
     if(isset($_POST["HugedevsMarketingIntegration_purchase_identifier"])) 
       update_option("HugedevsMarketingIntegration_purchase_identifier", $_POST["HugedevsMarketingIntegration_purchase_identifier"]);
+      
+    if(isset($_POST["HugedevsMarketingIntegration_abandoned_identifier"])) 
+      update_option("HugedevsMarketingIntegration_abandoned_identifier", $_POST["HugedevsMarketingIntegration_abandoned_identifier"]);
   }
   
 }

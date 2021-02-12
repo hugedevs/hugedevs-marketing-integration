@@ -24,6 +24,13 @@
                             value="<?php echo get_option("HugedevsMarketingIntegration_purchase_identifier"); ?>" class="regular-text" />
                     </td>
                 </tr>
+                <tr>
+                    <th scope="row"><label for="HugedevsMarketingIntegration_abandoned_identifier">Identificador para evento de carrinho abandonado</label></th>
+                    <td>
+                        <input name="HugedevsMarketingIntegration_abandoned_identifier" type="text" id="HugedevsMarketingIntegration_abandoned_identifier"
+                            value="<?php echo get_option("HugedevsMarketingIntegration_abandoned_identifier"); ?>" class="regular-text" />
+                    </td>
+                </tr>
             </tbody>
         </table>
         <p>
