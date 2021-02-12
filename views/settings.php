@@ -11,9 +11,9 @@
     <div class="tab-content">
         <?php 
 			switch($tab) :
-			case 'settings':
+			    case 'settings':
+                    include __DIR__.'/settings-settings.php';
 				break;
-					include __DIR__.'/settings-settings.php';
 				default:
 					include __DIR__.'/settings-events.php';
 				break;
